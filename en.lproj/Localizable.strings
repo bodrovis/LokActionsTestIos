@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  iOSTestApp
+
+  Created by Martins Skudra on 07/02/2023.
+  
+*/
+"keyname_Fruit_1" = "en local_Apple";
+"keyname_Fruit_2" = "en local_Banana";
+"keyname_Fruit_3" = "en local_Strawberry";
+"keyname_Fruit_4" = "en local_Pineapple";
+"keyname_Fruit_5" = "en local_Orange";
+"keyname_Fruit_6" = "en local_Lemon";
+"keyname_login_button" = "en local_Log in";
+
+//do not touch
+"keyAvailableInBundleAndLocal" = "en local Messi";
+"keyAvailableOnlyLocally" = "en local Xavi";

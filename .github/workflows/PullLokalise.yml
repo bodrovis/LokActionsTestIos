@@ -1,0 +1,36 @@
+name: Demo pull with tags
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Pull from Lokalise
+        id: lokalise-pull
+        uses: lokalise/lokalise-pull-action@main
+        with:
+          api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+          project_id: 2853102668763e85e45176.50644855
+          translations_path: |
+            fr.lproj
+          flat_naming: true
+          file_format: strings
+
+      - name: Debug Created Branch
+        run: |
+          echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
+          echo "PR created: ${{ steps.lokalise-pull.outputs.pr_created }}"
+          echo "PR id: ${{ steps.lokalise-pull.outputs.pr_id }}"
+          echo "PR number: ${{ steps.lokalise-pull.outputs.pr_number }}"
